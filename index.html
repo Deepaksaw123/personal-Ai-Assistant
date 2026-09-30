@@ -1,0 +1,267 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal AI Assistant</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="ai-profile">
+
+                <div class="ai-avatar">
+                    <img
+                        src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png"
+                        alt="AI Assistant"
+                    >
+                </div>
+
+                <h2>Personal AI</h2>
+
+                <div class="status">
+                    <span></span> Online &amp; Ready
+                </div>
+
+            </div>
+
+
+            <!-- MENU -->
+            <nav class="menu" aria-label="Workspace">
+
+                <div class="menu-title">Workspace</div>
+
+                <a href="#" class="active">
+                    <span class="icon">💬</span>
+                    <span>AI Assistant</span>
+                </a>
+
+                <a href="#">
+                    <span class="icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#">
+                    <span class="icon">📝</span>
+                    <span>Notes</span>
+                </a>
+
+                <a href="#">
+                    <span class="icon">📁</span>
+                    <span>Projects</span>
+                </a>
+
+                <a href="#">
+                    <span class="icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+
+            </nav>
+
+
+            <!-- SIDEBAR BOTTOM -->
+            <div class="sidebar-bottom">
+
+                <strong>Personal AI Assistant</strong>
+
+                <p>
+                    Your intelligent workspace for everyday tasks.
+                </p>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN -->
+        <main class="main">
+
+            <!-- TOP BAR -->
+            <header class="topbar">
+
+                <h1>
+                    Personal <span>AI</span> Assistant
+                </h1>
+
+                <!-- CURRENT TIME -->
+                <time class="time" id="time">
+                    Loading...
+                </time>
+
+            </header>
+
+
+            <!-- CHAT -->
+            <section
+                class="chat-container"
+                id="chatBox"
+                aria-live="polite"
+            >
+
+                <div class="welcome" id="welcome">
+
+                    <h2>
+                        Hello, Deepak
+                        <span aria-hidden="true">👋</span>
+                    </h2>
+
+                    <p>
+                        I'm your personal AI assistant.
+                        How can I help you today?
+                    </p>
+
+
+                    <!-- AI MESSAGE -->
+                    <div class="message ai-message">
+
+                        <div class="message-avatar">
+                            🤖
+                        </div>
+
+                        <div class="message-content">
+
+                            Hello! I'm your Personal AI Assistant.
+
+                            <br><br>
+
+                            You can ask me about coding, projects,
+                            studies, career preparation, or anything
+                            you want to work on.
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SUGGESTIONS -->
+                    <div class="suggestions">
+
+                        <button
+                            class="suggestion"
+                            type="button"
+                            data-message="Explain JavaScript in simple words"
+                        >
+                            <strong>💻 Learn Coding</strong>
+                            <small>
+                                Explain JavaScript in simple words
+                            </small>
+                        </button>
+
+
+                        <button
+                            class="suggestion"
+                            type="button"
+                            data-message="Help me build a Full Stack project"
+                        >
+                            <strong>🚀 Build Project</strong>
+                            <small>
+                                Help me build a Full Stack project
+                            </small>
+                        </button>
+
+
+                        <button
+                            class="suggestion"
+                            type="button"
+                            data-message="Prepare me for an interview"
+                        >
+                            <strong>🎯 Interview Prep</strong>
+                            <small>
+                                Prepare me for an interview
+                            </small>
+                        </button>
+
+
+                        <button
+                            class="suggestion"
+                            type="button"
+                            data-message="Create a study plan for me"
+                        >
+                            <strong>📚 Study Plan</strong>
+                            <small>
+                                Create a study plan for me
+                            </small>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- INPUT -->
+            <form class="input-area" id="chatForm">
+
+                <div class="input-box">
+
+                    <!-- MIC -->
+                    <button
+                        type="button"
+                        id="voiceBtn"
+                        class="voice-btn"
+                        title="Voice Input"
+                    >
+                        🎤
+                    </button>
+
+
+                    <!-- TEXT INPUT -->
+                    <input
+                        type="text"
+                        id="userInput"
+                        placeholder="Ask your Personal AI anything..."
+                        autocomplete="off"
+                        aria-label="Message"
+                    >
+
+
+                    <!-- STOP AI VOICE -->
+                    <button
+                        type="button"
+                        id="stopVoiceBtn"
+                        class="voice-btn"
+                        title="Stop AI Voice"
+                    >
+                        🔊
+                    </button>
+
+
+                    <!-- SEND -->
+                    <button
+                        class="send-btn"
+                        type="submit"
+                        aria-label="Send message"
+                    >
+                        ➤
+                    </button>
+
+                </div>
+
+
+                <div class="input-note">
+                    Personal AI • Secure Workspace
+                </div>
+
+            </form>
+
+        </main>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js" defer></script>
+
+</body>
+
+</html>
+```
