@@ -1,0 +1,221 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+body { min-height: 100vh; overflow: hidden; color: #fff; background: radial-gradient(circle at 20% 20%, rgba(90, 50, 255, .2), transparent 30%), radial-gradient(circle at 80% 80%, rgba(0, 180, 255, .15), transparent 30%), #070914; }
+.app { display: flex; width: 100%; height: 100vh; }
+.sidebar { display: flex; flex-direction: column; width: 270px; height: 100vh; padding: 25px 18px; background: rgba(10, 14, 30, .9); border-right: 1px solid rgba(120, 100, 255, .25); box-shadow: 0 0 30px rgba(83, 65, 255, .1); }
+.ai-profile { padding-bottom: 25px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, .08); }
+.ai-avatar { width: 110px; height: 110px; margin: auto; padding: 4px; border-radius: 50%; background: linear-gradient(135deg, #6d4aff, #00c6ff); box-shadow: 0 0 15px #6d4aff, 0 0 40px rgba(0, 198, 255, .35); }
+.ai-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; background: #111827; }
+.ai-profile h2 { margin-top: 15px; font-size: 21px; }
+.status { margin-top: 7px; color: #67e8f9; font-size: 13px; }
+.status span { display: inline-block; width: 8px; height: 8px; margin-right: 5px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 10px #22c55e; }
+.menu { margin-top: 25px; }
+.menu-title { margin: 0 0 12px 12px; color: #777d98; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+.menu a { display: flex; align-items: center; gap: 13px; padding: 13px 15px; margin-bottom: 6px; color: #aeb5cc; text-decoration: none; border-radius: 10px; transition: .3s; }
+.menu a:hover, .menu a.active { color: #fff; background: linear-gradient(90deg, rgba(100, 70, 255, .25), rgba(0, 180, 255, .08)); box-shadow: inset 3px 0 0 #725cff, 0 0 15px rgba(90, 70, 255, .08); }
+.icon { font-size: 19px; }
+.sidebar-bottom { padding: 15px; margin-top: auto; border: 1px solid rgba(255, 255, 255, .07); border-radius: 12px; background: rgba(255, 255, 255, .03); }
+.sidebar-bottom strong { display: block; margin-bottom: 5px; font-size: 12px; }
+.sidebar-bottom p, .suggestion small { color: #858ba3; font-size: 12px; line-height: 1.5; }
+.main { display: flex; flex: 1; flex-direction: column; min-width: 0; height: 100vh; }
+.topbar { display: flex; align-items: center; justify-content: space-between; height: 75px; padding: 0 30px; border-bottom: 1px solid rgba(255, 255, 255, .08); background: rgba(8, 11, 25, .65); backdrop-filter: blur(15px); }
+.topbar h1 { font-size: 21px; }
+.topbar h1 span { color: #8b7aff; }
+.time { color: #858ba3; font-size: 13px; }
+.chat-container { flex: 1; padding: 35px; overflow-y: auto; }
+.welcome { max-width: 850px; margin: 0 auto; }
+.welcome h2 { margin-bottom: 10px; font-size: 34px; background: linear-gradient(90deg, #fff, #9d8cff, #54d8ff); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.welcome > p { margin-bottom: 30px; color: #858ba3; }
+.message { display: flex; gap: 15px; margin-bottom: 25px; }
+.message-avatar { display: flex; flex: 0 0 42px; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, #6548ff, #00bfff); box-shadow: 0 0 18px rgba(100, 70, 255, .35); }
+.message-content { max-width: 650px; padding: 15px 18px; color: #d9dced; line-height: 1.6; border: 1px solid rgba(255, 255, 255, .07); border-radius: 4px 15px 15px 15px; background: rgba(255, 255, 255, .045); }
+.suggestions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 30px; }
+.suggestion { padding: 17px; color: #fff; text-align: left; border: 1px solid rgba(255, 255, 255, .08); border-radius: 12px; background: rgba(255, 255, 255, .035); cursor: pointer; transition: .3s; }
+.suggestion:hover { transform: translateY(-3px); border-color: rgba(120, 100, 255, .5); box-shadow: 0 0 20px rgba(90, 70, 255, .12); }
+.suggestion strong { display: block; margin-bottom: 5px; }
+.user-message { justify-content: flex-end; }
+.user-message .message-content { border-radius: 15px 4px 15px 15px; background: rgba(80, 70, 220, .3); }
+.typing { opacity: .7; }
+.input-area { padding: 18px 30px 25px; background: linear-gradient(to top, #070914 70%, transparent); }
+.input-box { display: flex; align-items: center; gap: 10px; max-width: 900px; padding: 7px; margin: auto; border: 1px solid rgba(120, 100, 255, .25); border-radius: 15px; background: rgba(19, 23, 45, .95); box-shadow: 0 0 25px rgba(80, 60, 255, .08); }
+.input-box input { flex: 1; min-width: 0; padding: 14px; color: #fff; font-size: 15px; border: 0; outline: 0; background: transparent; }
+.input-box input::placeholder { color: #666c83; }
+.send-btn { width: 45px; height: 45px; color: #fff; font-size: 18px; border: 0; border-radius: 11px; background: linear-gradient(135deg, #684aff, #009dff); box-shadow: 0 0 15px rgba(80, 90, 255, .35); cursor: pointer; transition: .3s; }
+.send-btn:hover { transform: scale(1.06); }
+.input-note { margin-top: 9px; color: #4f556b; font-size: 11px; text-align: center; }
+@media (max-width: 800px) { .sidebar { width: 75px; padding: 15px 10px; } .ai-profile h2, .status, .menu-title, .menu a span:not(.icon), .sidebar-bottom { display: none; } .ai-avatar { width: 50px; height: 50px; } .menu a { justify-content: center; padding: 14px 5px; } .chat-container { padding: 25px 18px; } .welcome h2 { font-size: 27px; } .suggestions { grid-template-columns: 1fr; } .topbar { padding: 0 18px; } .topbar h1 { font-size: 17px; } .input-area { padding: 18px 18px 25px; } }
+
+
+.voice-btn {
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.voice-btn:hover {
+    transform: scale(1.1);
+}
+
+.voice-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+#voiceBtn {
+    transition: 0.2s;
+}
+
+#voiceBtn.recording {
+    animation: voicePulse 1s infinite;
+}
+
+@keyframes voicePulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+.input-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.voice-btn {
+    order: 1;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px;
+    flex-shrink: 0;
+}
+
+#userInput {
+    order: 2;
+    flex: 1;
+}
+
+#stopVoiceBtn {
+    order: 3;
+}
+
+.send-btn {
+    order: 4;
+}
+/* ===============================
+   SECTION PAGES
+================================ */
+
+.section-page {
+    padding: 35px;
+    color: white;
+}
+
+.section-page h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+
+/* DASHBOARD */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.dashboard-card {
+    padding: 25px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dashboard-card h3 {
+    margin-bottom: 15px;
+}
+
+.dashboard-card p {
+    font-size: 28px;
+    margin: 5px 0;
+}
+
+
+/* NOTES */
+
+.notes-input {
+    width: 100%;
+    min-height: 200px;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.05);
+    color: white;
+    resize: vertical;
+    font-size: 16px;
+}
+
+.save-btn {
+    margin-top: 15px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #6c5ce7;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* PROJECTS */
+
+.project-card {
+    padding: 22px;
+    margin-bottom: 18px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.project-card span {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    background: rgba(0, 255, 150, 0.1);
+}
+
+
+/* SETTINGS */
+
+.settings-card {
+    max-width: 500px;
+}
+
+.settings-card label {
+    display: block;
+    margin: 18px 0 8px;
+}
+
+.settings-card input,
+.settings-card select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.05);
+    color: white;
+}
